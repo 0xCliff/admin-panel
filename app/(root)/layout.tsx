@@ -3,7 +3,11 @@ import { redirect } from 'next/navigation';
 
 import prismadb from '@/lib/prismadb';
 
-const SetupLayout = async ({ children }: { children: React.ReactNode }) => {
+export default async function SetupLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { userId } = auth();
 
   if (!userId) {
@@ -21,6 +25,4 @@ const SetupLayout = async ({ children }: { children: React.ReactNode }) => {
   }
 
   return <>{children}</>;
-};
-
-export default SetupLayout;
+}

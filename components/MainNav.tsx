@@ -5,10 +5,10 @@ import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
-const MainNav = ({
+export default function MainNav({
   className,
   ...props
-}: React.HTMLAttributes<HTMLElement>) => {
+}: React.HTMLAttributes<HTMLElement>) {
   const pathname = usePathname();
   const params = useParams();
 
@@ -43,6 +43,4 @@ const MainNav = ({
       ))}
     </nav>
   );
-};
-
-export default MainNav;
+}

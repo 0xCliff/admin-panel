@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import { useStoreModal } from '@/hooks/use-store-modal';
 
-const SetupPage: React.FC = () => {
+export default function SetupPage() {
   const onOpen = useStoreModal(state => state.onOpen);
   const isOpen = useStoreModal(state => state.isOpen);
 
@@ -15,6 +15,4 @@ const SetupPage: React.FC = () => {
   }, [isOpen, onOpen]);
 
   return null;
-};
-
-export default SetupPage;
+}

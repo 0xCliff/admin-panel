@@ -4,13 +4,13 @@ import { redirect } from 'next/navigation';
 import prismadb from '@/lib/prismadb';
 import SettingsForm from './components/SettingsForm';
 
-interface SettingsPageProps {
+type SettingsPageProps = {
   params: {
     storeId: string;
   };
-}
+};
 
-const SettingsPage: React.FC<SettingsPageProps> = async ({ params }) => {
+export default async function SettingsPage({ params }: SettingsPageProps) {
   const { userId } = auth();
 
   if (!userId) {
@@ -35,6 +35,4 @@ const SettingsPage: React.FC<SettingsPageProps> = async ({ params }) => {
       </div>
     </div>
   );
-};
-
-export default SettingsPage;
+}
