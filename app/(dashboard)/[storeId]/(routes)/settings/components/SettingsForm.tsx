@@ -26,9 +26,9 @@ import AlertModal from '@/components/modals/AlertModal';
 import ApiAlert from '@/components/ui/ApiAlert';
 import { useOrigin } from '@/hooks/use-origin';
 
-interface SettingsFormProps {
+type SettingsFormProps = {
   initialData: Store;
-}
+};
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -36,7 +36,7 @@ const formSchema = z.object({
 
 type SettingsFormValues = z.infer<typeof formSchema>;
 
-const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
+export default function SettingsForm({ initialData }: SettingsFormProps) {
   const params = useParams();
   const router = useRouter();
 
@@ -135,6 +135,4 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
       />
     </>
   );
-};
-
-export default SettingsForm;
+}

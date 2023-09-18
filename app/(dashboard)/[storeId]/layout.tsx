@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import prismadb from '@/lib/prismadb';
 import Navbar from '@/components/Navbar';
 
-const DashboardLayout = async ({
+export default async function DashboardLayout({
   children,
   params,
 }: {
@@ -12,7 +12,7 @@ const DashboardLayout = async ({
   params: {
     storeId: string;
   };
-}) => {
+}) {
   const { userId } = auth();
 
   if (!userId) {
@@ -36,6 +36,4 @@ const DashboardLayout = async ({
       {children}
     </>
   );
-};
-
-export default DashboardLayout;
+}

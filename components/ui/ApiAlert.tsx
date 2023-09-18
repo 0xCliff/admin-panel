@@ -7,11 +7,11 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge, BadgeProps } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
-interface ApiAlertProps {
+type ApiAlertProps = {
   title: string;
   description: string;
   variant: 'public' | 'admin';
-}
+};
 
 const textMap: Record<ApiAlertProps['variant'], string> = {
   public: 'Public',
@@ -23,11 +23,11 @@ const variantmap: Record<ApiAlertProps['variant'], BadgeProps['variant']> = {
   admin: 'destructive',
 };
 
-const ApiAlert: React.FC<ApiAlertProps> = ({
+export default function ApiAlert({
   title,
   description,
   variant = 'public',
-}) => {
+}: ApiAlertProps) {
   const onCopy = () => {
     navigator.clipboard.writeText(description);
     toast.success('API route copied to clipboard');
@@ -50,6 +50,4 @@ const ApiAlert: React.FC<ApiAlertProps> = ({
       </AlertDescription>
     </Alert>
   );
-};
-
-export default ApiAlert;
+}

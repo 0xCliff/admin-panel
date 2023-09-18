@@ -15,7 +15,11 @@ export const metadata: Metadata = {
     'Administration panel for E-Commerce and CMS sites created by Clifftek',
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <ClerkProvider>
       <html lang='en'>
@@ -27,6 +31,4 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </html>
     </ClerkProvider>
   );
-};
-
-export default RootLayout;
+}
